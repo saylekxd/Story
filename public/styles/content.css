@@ -24,3 +24,28 @@ h1 {
   text-align: center;
 }
 
+.nav-link {
+  color: black;
+}
+
+.nav-link.active {
+  background-color: black !important;
+}
+
+.nav-link:hover {
+  color: rgb(255, 255, 255);
+}
+
+#main {
+  min-height: 70vh;
+}
+
+.titleName {
+  border: 1px solid #6c757d;
+  height: 6vh;
+  width: 60%;
+}
+.titleName:hover {
+  border: 1px solid #6c757d;
+  
+}

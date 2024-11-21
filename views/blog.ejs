@@ -1,5 +1,51 @@
 <%- include("partials/header.ejs") %>
 
-<h1>Hello!</h1>
+<div class="container">
+    
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-4 align-items-center rounded-3 shadow-lg bg-transparent" id="main">
+
+        <div class="col-12 d-flex flex-column justify-content-center"> 
+            <h1>Time to write your article here... </h1>
+            <hr class="w-100 my-2" />
+        </div>
+
+        <form action="/api/your-endpoint" method="POST" class="col-lg-12">
+            <div class="mb-3 col-12">
+                <label for="exampleFormControlInput1" class="form-label">Your article title:</label>
+                <input class="form-control" id="exampleFormControlInput1" placeholder="Must be 8-90 characters long. " minlength="8" maxlength="90">
+            </div>
+            <div class="mb-3 col-12">
+                <label for="exampleFormControlTextarea1" class="form-label">Feel free to describe here <strong>whatever</strong>  is important! </label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="You don't even have any limitations about your poem!  "></textarea>
+            </div>
+            
+            <div class="row gy-2 gx-3 align-items-center justify-content-center col-12">
+                <div class="col-auto">
+                    <label class="visually-hidden" for="autoSizingInput">Name</label>
+                    <div class="input-group">
+                        <div class="input-group-text">@</div>
+                        <input type="text" class="form-control" id="autoSizingInput" placeholder="Jane Doe">
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-text">@</div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="w-100"/>
+
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+
+            </div>
+        
+        </form>
+    </div>
+</div>
 
 <%- include("partials/footer.ejs") %>

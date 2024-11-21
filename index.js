@@ -12,11 +12,19 @@ app.use(express.static('public'));
                                    
 
 app.get("/", (req, res) => {
-  res.render("index.ejs")           
+  res.render("main.ejs")           
 });
 
 app.get("/blog", (req, res) => {
   res.render("blog.ejs")
+});
+
+app.get("/edit", (req, res) => {
+  res.render("edit.ejs")
+});
+
+app.get("/article", (req, res) => {
+  res.render("article.ejs")
 });
 
 // app.post("/submit", (req, res) => {                        
