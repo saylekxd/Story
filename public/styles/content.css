@@ -47,5 +47,18 @@ h1 {
 }
 .titleName:hover {
   border: 1px solid #6c757d;
-  
 }
+  
+
+.card-body {
+  background-color: white;
+}
+
+.card-header {
+  background-color: #ced4da;
+}
+
+.card-footer {
+  background-color: #e7dfd8;
+}
+

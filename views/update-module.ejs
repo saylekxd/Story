@@ -1,0 +1,81 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-4 rounded-3 shadow-lg bg-transparent" id="main">
+        <div class="col-12 d-flex flex-column justify-content-top"> 
+            <h1>Edit your article</h1>
+            <hr class="w-100 my-2" />
+        </div>
+
+        <div class="col-12">
+            <% if (debug) { %>
+                <div class="alert alert-info">
+                    <pre>Debug Info:
+Article ID: <%= article.id %>
+Title: <%= article.title %>
+MainText: <%= article.mainText %>
+Author: <%= article.author %>
+Nick: <%= article.nick %>
+                    </pre>
+                </div>
+            <% } %>
+
+            <form action="/updatearticle/<%= article.id %>" method="POST" class="d-flex flex-column gap-3">
+                <div class="mb-3">
+                    <label for="titleInput" class="form-label">Article Title:</label>
+                    <input name="title"
+                           class="form-control"
+                           id="titleInput"
+                           placeholder="Must be 8-90 characters long."
+                           minlength="8"
+                           maxlength="90"
+                           value="<%= article.title %>"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="contentInput" class="form-label">Article Content:</label>
+                    <textarea name="mainText"
+                              class="form-control"
+                              id="contentInput"
+                              rows="3"
+                              required
+                              style="height: 20rem;"><%= article.mainText %></textarea>
+                </div>
+
+                <div class="row gy-2 gx-3 align-items-center">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input name="author"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="Author Name"
+                                   value="<%= article.author %>"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input name="nickname"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="Username"
+                                   value="<%= article.nick %>"
+                                   required>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="w-100 my-4"/>
+
+                <div class="d-flex flex-column align-content-bottom">
+                    <button type="submit" class="btn btn-dark">Update Article</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

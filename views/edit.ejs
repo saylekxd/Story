@@ -10,75 +10,40 @@
             <hr class="w-100 my-2" />
         </div>
 
-        <div class="col-12 d-flex justify-content-center"> 
-            <div class="titleName d-flex justify-content-center align-items-center text-center">
-                <p class="m-0 p-0">Hello!</p>
-            </div>
-            <button class="btn btn-outline-secondary dropdown-toggle mx-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">View</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Download</a></li>
-                </ul>
-        </div>
-
-        <div class="col-12 d-flex justify-content-center"> 
-            <div class="titleName d-flex justify-content-center align-items-center text-center">
-                <p class="m-0 p-0">Hello!</p>
-            </div>
-            <button class="btn btn-outline-secondary dropdown-toggle mx-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">View</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Download</a></li>
-                </ul>
-        </div>
-
-        <div class="col-12 d-flex justify-content-center"> 
-            <div class="titleName d-flex justify-content-center align-items-center text-center">
-                <p class="m-0 p-0">Hello!</p>
-            </div>
-            <button class="btn btn-outline-secondary dropdown-toggle mx-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">View</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Download</a></li>
-                </ul>
-        </div>
-
-        <div class="col-12 d-flex justify-content-center"> 
-            <div class="titleName d-flex justify-content-center align-items-center text-center">
-                <p class="m-0 p-0">Hello!</p>
-            </div>
-            <button class="btn btn-outline-secondary dropdown-toggle mx-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">View</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Download</a></li>
-                </ul>
-        </div>
-
-        <div class="col-12 d-flex justify-content-center"> 
-            <div class="titleName d-flex justify-content-center align-items-center text-center">
-                <p class="m-0 p-0">Hello!</p>
-            </div>
-            <button class="btn btn-outline-secondary dropdown-toggle mx-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">View</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Download</a></li>
-                </ul>
-        </div>
-
-        
-        
-       
-        
+        <% if (typeof articles !== 'undefined' && articles.length > 0) { %>
+            <% articles.forEach(article => { %>
+                <div class="col-12 d-flex justify-content-center p-4">
+                    <div class="card text-bg-dark text-center border-secondary w-75">
+                        <div class="card-header text-bg-dark">
+                            <%= article.title %>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= article.author %></h5>
+                            <p class="card-text"><%= article.content %></p>
+                            <a href="/edit/<%= article.id %>" class="btn btn-dark">Edit</a>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            Posted by: <%= article.nick %>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+                <div class="col-12 d-flex justify-content-center p-4">
+                    <div class="card text-bg-dark text-center border-secondary w-75">
+                        <div class="card-header text-bg-dark">
+                            No articles found.
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"> Please add article. </h5>
+    
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <p> --- </p>
+                        </div>
+                    </div>
+                </div>
+        <% } %>            
     </div>
 </div>
 <%- include("partials/footer.ejs") %>
